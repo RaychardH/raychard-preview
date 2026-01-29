@@ -14,14 +14,17 @@
   <meta property="og:description" content="Try my strategic thinking before you hire it.">
   <meta name="theme-color" content="#0F0D0A">
   
-  <script type="module" crossorigin src="/assets/index-CqIYALUo.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Ch-_pupn.css">
+  <script type="module" crossorigin src="/assets/index-DGA2sGp6.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-dipmdS0M.css">
 </head>
 <body>
   
-  <!-- Preloader -->
+  <!-- Cinematic Preloader -->
   <div class="preloader" id="preloader">
-    <span class="preloader-text">See around corners</span>
+    <div class="preloader-sequence">
+      <span class="preloader-line preloader-line-1">What if you could...</span>
+      <span class="preloader-line preloader-line-2">see around corners?</span>
+    </div>
   </div>
   
   <a href="#simulator" class="skip-link">Skip to simulator</a>
@@ -29,7 +32,13 @@
   
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   
-  <!-- Nav — simplified -->
+  <!-- Section Indicator -->
+  <div class="section-indicator" id="section-indicator" aria-hidden="true">
+    <span class="si-dot"></span>
+    <span class="si-text" id="si-text">Hero</span>
+  </div>
+  
+  <!-- Nav -->
   <nav class="nav" id="nav">
     <div class="nav-container">
       <a href="#hero" class="nav-logo">Raychard Huang</a>
@@ -50,70 +59,16 @@
 
   <main>
     
-    <!-- ═══ HERO + SIMULATOR: ONE EXPERIENCE ═══ -->
-    <section id="hero" class="hero-sim">
-      <div class="container hero-sim-container">
-        
-        <!-- Phase 1: The Promise -->
+    <!-- ═══ HERO ═══ -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
         <div class="hero-phase" id="hero-promise">
           <h1 class="hero-title">
-            <span class="line" data-delay="0">What if you could</span>
-            <span class="line accent-line" data-delay="1"><em>see around corners?</em></span>
+            <span class="line line-1">What if you could</span>
+            <span class="line line-2 accent-line"><em>see around corners?</em></span>
           </h1>
-          
           <p class="hero-sub">Your technology is years ahead. Your story hasn't caught up.</p>
-          
-          <div class="hero-bridge">
-            <span class="bridge-label">Try it — </span>
-            <button class="btn btn-primary btn-glow" id="enter-sim">Step into a CEO's midnight →</button>
-          </div>
         </div>
-        
-        <!-- Thesis: The Intellectual Stakes -->
-        <div class="thesis-block" id="thesis-block">
-          <div class="thesis-statement">
-            <p class="thesis-eyebrow">The problem</p>
-            <h2 class="thesis-headline">Every year, companies spend millions on brand strategy. Twelve months later, most of it is <em>obsolete.</em></h2>
-            <p class="thesis-follow">What if the strategy itself could see around corners?</p>
-          </div>
-        </div>
-        
-        <!-- Phase 2: The Proof (Simulator) -->
-        <div class="sim-phase" id="sim-phase" hidden>
-          <div class="sim-stage" id="sim-stage">
-            <div class="scenario-panel" id="scenario-panel">
-              <div class="scenario-label"><span class="scenario-dot"></span> <span id="scenario-label-text">Scenario</span></div>
-              <h3 class="scenario-title" id="scenario-title"></h3>
-              <p class="scenario-context" id="scenario-context"></p>
-              <p class="scenario-question" id="scenario-question"></p>
-            </div>
-            
-            <div class="choices" id="choices"></div>
-            
-            <div class="outcome" id="outcome" hidden>
-              <div class="outcome-badge" id="outcome-badge"></div>
-              <h3 class="outcome-title" id="outcome-title"></h3>
-              <div class="outcome-narrative" id="outcome-narrative"></div>
-              <div class="outcome-metrics" id="outcome-metrics"></div>
-              <div class="outcome-footer">
-                <button class="btn btn-outline" id="try-again">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1 1 1.5 4" stroke="currentColor" stroke-width="1.5"/><path d="M2 14V10h4" stroke="currentColor" stroke-width="1.5"/></svg>
-                  Try another path
-                </button>
-                <button class="btn btn-outline" id="next-scenario" style="display:none;">
-                  Next scenario →
-                </button>
-                <p class="outcome-note">This is what I do — help you see around corners <em>before</em> you commit.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sim-counter">
-            <span class="dc-value" id="dc-value">0</span>
-            <span class="dc-label">decisions simulated</span>
-          </div>
-        </div>
-        
       </div>
       
       <!-- Floating keyword bubbles -->
@@ -134,14 +89,64 @@
         <span class="bubble" data-speed="0.9" data-size="md">Digital Experience</span>
       </div>
       
-      <!-- Scroll cue (only in promise phase) -->
       <div class="scroll-cue" id="scroll-cue">
-        <span>or scroll to explore</span>
+        <span>Scroll to experience</span>
         <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><path d="M8 4v12M3 13l5 5 5-5" stroke="currentColor" stroke-width="1.5"/></svg>
       </div>
     </section>
     
-    <!-- ═══ THE GAP (Transition from simulator) ═══ -->
+    <!-- ═══ THESIS ═══ -->
+    <section class="thesis-section" id="thesis">
+      <div class="container">
+        <div class="thesis-statement">
+          <p class="thesis-eyebrow">The problem</p>
+          <h2 class="thesis-headline">Every year, companies spend millions on brand strategy. Twelve months later, most of it is <em>obsolete.</em></h2>
+          <p class="thesis-follow">What if the strategy itself could see around corners?</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ═══ SIMULATOR — Scroll-integrated ═══ -->
+    <section id="simulator" class="sim-section">
+      <div class="container">
+        <p class="sim-intro-bridge"><em>Let me show you what I mean.</em></p>
+        
+        <div class="sim-stage" id="sim-stage">
+          <div class="scenario-panel" id="scenario-panel">
+            <div class="scenario-label"><span class="scenario-dot"></span> <span id="scenario-label-text">Scenario 1 of 3</span></div>
+            <h3 class="scenario-title" id="scenario-title"></h3>
+            <p class="scenario-context" id="scenario-context"></p>
+            <p class="scenario-question" id="scenario-question"></p>
+          </div>
+          
+          <div class="choices" id="choices"></div>
+          
+          <div class="outcome" id="outcome" hidden>
+            <div class="outcome-badge" id="outcome-badge"></div>
+            <h3 class="outcome-title" id="outcome-title"></h3>
+            <div class="outcome-narrative" id="outcome-narrative"></div>
+            <div class="outcome-metrics" id="outcome-metrics"></div>
+            <div class="outcome-footer">
+              <button class="btn btn-outline" id="try-again">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1 1 1.5 4" stroke="currentColor" stroke-width="1.5"/><path d="M2 14V10h4" stroke="currentColor" stroke-width="1.5"/></svg>
+                Try another path
+              </button>
+              <button class="btn btn-outline" id="next-scenario" style="display:none;">
+                Next scenario →
+              </button>
+              <p class="outcome-note">This is what I do — help you see around corners <em>before</em> you commit.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sim-counter">
+          <span class="dc-value" id="dc-value">0</span>
+          <span class="dc-label">decisions simulated</span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ═══ THE GAP ═══ -->
     <section id="gap" class="gap-section">
       <div class="container">
         <div class="gap-declaration">
@@ -183,7 +188,7 @@
       </div>
     </section>
     
-    <!-- ═══ RUPTURE — The Screenshot Moment ═══ -->
+    <!-- ═══ RUPTURE ═══ -->
     <section class="rupture" aria-hidden="true">
       <div class="rupture-text">
         <span class="rupture-line rupture-line-1">The best technology</span>
@@ -194,71 +199,114 @@
       </div>
     </section>
 
+    <!-- ═══ TYPOGRAPHIC BRIDGE ═══ -->
+    <section class="typo-bridge" aria-label="Bridge statement">
+      <div class="container">
+        <p class="bridge-statement">Five companies. Five gaps closed. Each one a different kind of <em>translation.</em></p>
+      </div>
+    </section>
+
     <!-- ═══ WORK ═══ -->
     <section id="work" class="work">
       <div class="container">
         <span class="section-num">01</span>
+        <p class="section-bridge-sub"><em>The proof is in the bridges.</em></p>
         <h2 class="section-title">Bridges Built</h2>
-        <p class="section-sub">Five companies. Five gaps closed. Each one a different kind of translation.</p>
+        <p class="section-sub">Real companies. Real gaps. Real outcomes.</p>
         
-        <div class="work-grid">
+        <!-- Connecting thread SVG -->
+        <div class="work-thread-container" aria-hidden="true">
+          <svg class="work-thread-svg" id="work-thread-svg" preserveAspectRatio="none"></svg>
+        </div>
+        
+        <div class="work-grid" id="work-grid">
           
-          <article class="work-card" data-project="innodisk" data-accent="teal">
+          <article class="work-card" data-project="innodisk" data-accent="teal" data-direction="left">
             <div class="card-accent-bar"></div>
-            <div class="card-visual" style="--gradient: linear-gradient(135deg, #264653, #2A9D8F);"><span class="card-client">Edge AI Platform</span></div>
+            <div class="card-visual" style="--gradient: linear-gradient(135deg, #264653, #2A9D8F);">
+              <div class="card-visual-pattern" data-pattern="circuit"></div>
+              <span class="card-client">Edge AI Platform</span>
+            </div>
             <div class="card-body">
               <span class="card-gap">Technology → Humanity</span>
               <h3>Architect Intelligence</h3>
               <p>The best-kept secret in edge AI became the architect of an ecosystem. Component vendor → platform leader.</p>
-              <div class="card-metrics"><span>+45% Revenue</span><span>+62% Perception</span></div>
+              <div class="card-metrics">
+                <span class="card-metric-big">+45% Revenue</span>
+                <span class="card-metric-big">+62% Perception</span>
+              </div>
               <div class="card-thread"><span class="thread-arrow">→</span> Deep-tech positioning patterns that fed into semiconductor and industrial IoT engagements.</div>
             </div>
           </article>
           
-          <article class="work-card" data-project="mediatek" data-accent="copper">
+          <article class="work-card" data-project="mediatek" data-accent="copper" data-direction="right">
             <div class="card-accent-bar"></div>
-            <div class="card-visual" style="--gradient: linear-gradient(135deg, #8B4513, #CD7F32);"><span class="card-client">Semiconductor Giant</span></div>
+            <div class="card-visual" style="--gradient: linear-gradient(135deg, #8B4513, #CD7F32);">
+              <div class="card-visual-pattern" data-pattern="wave"></div>
+              <span class="card-client">Semiconductor Giant</span>
+            </div>
             <div class="card-body">
               <span class="card-gap">Perception → Reality</span>
               <h3>Edge AI Leadership</h3>
               <p>Their CTO couldn't sell the name to his board. We didn't change the chip — we changed the story around it.</p>
-              <div class="card-metrics"><span>+35% Awareness</span><span>+28% Applications</span></div>
+              <div class="card-metrics">
+                <span class="card-metric-big">+35% Awareness</span>
+                <span class="card-metric-big">+28% Applications</span>
+              </div>
               <div class="card-thread"><span class="thread-arrow">→</span> Edge AI + precision instrument intelligence converged here.</div>
             </div>
           </article>
           
-          <article class="work-card" data-project="kikawa" data-accent="rust">
+          <article class="work-card" data-project="kikawa" data-accent="rust" data-direction="left">
             <div class="card-accent-bar"></div>
-            <div class="card-visual" style="--gradient: linear-gradient(135deg, #6B3A2A, #B87333);"><span class="card-client">Legacy Manufacturer</span></div>
+            <div class="card-visual" style="--gradient: linear-gradient(135deg, #6B3A2A, #B87333);">
+              <div class="card-visual-pattern" data-pattern="grid"></div>
+              <span class="card-client">Legacy Manufacturer</span>
+            </div>
             <div class="card-body">
               <span class="card-gap">Legacy → Future</span>
               <h3>Engineering Flow Intelligence</h3>
               <p>A 50-year pump manufacturer asked me to help them speak to the AI generation. I started in their engineering archives.</p>
-              <div class="card-metrics"><span>-40% Time-to-Market</span><span>4.8/5 Satisfaction</span></div>
+              <div class="card-metrics">
+                <span class="card-metric-big">-40% Time-to-Market</span>
+                <span class="card-metric-big">4.8/5 Satisfaction</span>
+              </div>
               <div class="card-thread"><span class="thread-arrow">→</span> Where compound intelligence became a system — MaestrOS was born here.</div>
             </div>
           </article>
           
-          <article class="work-card" data-project="chroma" data-accent="amber">
+          <article class="work-card" data-project="chroma" data-accent="amber" data-direction="right">
             <div class="card-accent-bar"></div>
-            <div class="card-visual" style="--gradient: linear-gradient(135deg, #8B6914, #DAA520);"><span class="card-client">Power Systems</span></div>
+            <div class="card-visual" style="--gradient: linear-gradient(135deg, #8B6914, #DAA520);">
+              <div class="card-visual-pattern" data-pattern="dots"></div>
+              <span class="card-client">Power Systems</span>
+            </div>
             <div class="card-body">
               <span class="card-gap">Data → Story</span>
               <h3>Advancing Excellence</h3>
               <p>Twelve market segments. One unified voice. Data sheets became enterprise narratives of precision.</p>
-              <div class="card-metrics"><span>12+ Segments</span><span>+58% Engagement</span></div>
+              <div class="card-metrics">
+                <span class="card-metric-big">12+ Segments</span>
+                <span class="card-metric-big">+58% Engagement</span>
+              </div>
               <div class="card-thread"><span class="thread-arrow">→</span> Precision language that became the foundation for semiconductor branding.</div>
             </div>
           </article>
           
-          <article class="work-card" data-project="lotus-pharma" data-accent="teal">
+          <article class="work-card" data-project="lotus-pharma" data-accent="teal" data-direction="left">
             <div class="card-accent-bar"></div>
-            <div class="card-visual" style="--gradient: linear-gradient(135deg, #1A3A4A, #3A7CA5);"><span class="card-client">Global Pharma</span></div>
+            <div class="card-visual" style="--gradient: linear-gradient(135deg, #1A3A4A, #3A7CA5);">
+              <div class="card-visual-pattern" data-pattern="globe"></div>
+              <span class="card-client">Global Pharma</span>
+            </div>
             <div class="card-body">
               <span class="card-gap">Local → Global</span>
               <h3>Global Brand Unification</h3>
               <p>Fifteen Asian markets trusted them. In New York, invisible. We built one voice that traveled.</p>
-              <div class="card-metrics"><span>-30% Costs</span><span>+45% Partnerships</span></div>
+              <div class="card-metrics">
+                <span class="card-metric-big">-30% Costs</span>
+                <span class="card-metric-big">+45% Partnerships</span>
+              </div>
               <div class="card-thread"><span class="thread-arrow">→</span> BrandOS evolved from this project — one system, many markets.</div>
             </div>
           </article>
@@ -267,7 +315,7 @@
       </div>
     </section>
     
-    <!-- ═══ PULL QUOTE — Second Typographic Hit ═══ -->
+    <!-- ═══ PULL QUOTE ═══ -->
     <section class="pull-quote-section" aria-label="Pull quote">
       <div class="pull-quote-inner">
         <p class="pull-quote-text">I got tired of watching<br>good strategy <em>decay.</em></p>
@@ -283,11 +331,27 @@
             <span class="section-num">02</span>
             <h2 class="section-title">From Building Systems<br>to <em>Shaping Perception</em></h2>
             
-            <p class="about-trio">Process engineer. Brand strategist. Systems architect.</p>
+            <p class="about-trio" id="about-trio">Process engineer. Brand strategist. Systems architect.</p>
             <p class="lead">I designed process systems for power plants. Then EV charging infrastructure. I was good at it — and completely invisible. The most sophisticated systems I built failed the moment someone had to explain them to a non-engineer.</p>
             <p>That failure led me here. Fifteen years of helping technology companies close the gap between what they've built and what the world is willing to believe.</p>
             <p>I've watched a rebrand nearly destroy a client's trust because we moved faster than their product team. I learned that <strong>a bridge built too early is just a cliff.</strong> That lesson lives in everything I do now.</p>
             <p>Today, as Creative Intelligence Officer at <a href="https://red-peak.com" target="_blank" rel="noopener">RedPeak</a> — part of the <a href="https://kyu.com" target="_blank" rel="noopener">kyu Collective</a> — I lead strategic engagements for the world's largest semiconductor foundry, global semiconductor giants, edge AI storage leaders, industrial IoT pioneers, and precision test & measurement companies who need their story to match their substance.</p>
+            
+            <!-- Credential Strip -->
+            <div class="credential-strip">
+              <div class="cred-item">
+                <span class="cred-number">15</span>
+                <span class="cred-label">Years</span>
+              </div>
+              <div class="cred-item">
+                <span class="cred-number">50+</span>
+                <span class="cred-label">Brands</span>
+              </div>
+              <div class="cred-item">
+                <span class="cred-number">5</span>
+                <span class="cred-label">Industries</span>
+              </div>
+            </div>
             
             <div class="about-personal">
               <span class="personal-label">Beyond strategy</span>
@@ -301,7 +365,7 @@
             </div>
           </div>
           
-          <div class="about-portrait">
+          <div class="about-portrait" id="about-portrait">
             <div class="portrait-frame">
               <img src="/images/portrait.jpg" alt="Raychard Huang" class="portrait-img" loading="lazy" width="400" height="533">
             </div>
@@ -317,9 +381,10 @@
           <h2 class="contact-title">Your technology deserves<br><em>a story that matches.</em></h2>
           <p class="contact-sub">If you've built something the world doesn't understand yet — that's not a marketing problem. It's a translation problem. And translation is what I do.</p>
           <div class="contact-links">
-            <a href="mailto:hi@raychard.co" class="btn btn-primary btn-lg">hi@raychard.co ↗</a>
+            <a href="mailto:hi@raychard.co" class="btn btn-primary btn-lg btn-magnetic" id="email-btn">hi@raychard.co ↗</a>
             <a href="https://www.linkedin.com/in/hsinhsiangh/" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
+          <p class="contact-node-text">The next node in the network could be yours.</p>
         </div>
       </div>
     </section>
