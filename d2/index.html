@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raychard Huang — Compound Intelligence</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  
+  <meta name="description" content="Raychard Huang — Brand strategist who builds systems that compound intelligence. Process engineer turned brand architect.">
+  <meta property="og:title" content="Raychard Huang — Compound Intelligence">
+  <meta property="og:description" content="What if every project made the next one smarter?">
+  <meta name="theme-color" content="#0A0A08">
+  
+
+  <!-- No-JS fallback -->
+  <noscript>
+    <style>
+      #graph-canvas, .film-grain, .node-counter, .scroll-hint, .custom-cursor, .cursor-trail-canvas, .scroll-progress { display: none !important; }
+      .hero-line, .hero-sub-block, .section-overline, .section-title,
+      .thesis-card, .thesis-pivot, .work-card, .system-card,
+      .about-content, .about-signal, .contact-content,
+      .typographic-break, .compound-thread { opacity: 1 !important; transform: none !important; }
+      .graph-explore { min-height: auto !important; }
+      .graph-explore-inner { display: none; }
+      .graph-fallback { display: block !important; }
+      body { cursor: auto !important; }
+    </style>
+  </noscript>
+  <script type="module" crossorigin src="/assets/index-BJ-3Kcn_.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BfSiBLWz.css">
+</head>
+<body>
+  
+  <!-- Preloader — Network initializing sequence -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <span class="preloader-num" id="preloader-num">0</span>
+      <span class="preloader-label">initializing network</span>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill" id="preloader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor — Node trail -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+  </div>
+  <canvas class="cursor-trail-canvas" id="cursor-trail-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
+  </div>
+
+  <!-- Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+  
+  <!-- Intelligence Graph Canvas -->
+  <canvas id="graph-canvas" aria-hidden="true"></canvas>
+  
+  <!-- Accessible graph description -->
+  <div id="graph-description" class="sr-only" role="region" aria-label="Intelligence network graph">
+    <h2>Intelligence Network</h2>
+    <p>An interactive network graph showing connections between Raychard Huang's projects, systems, and expertise areas. The graph grows as you scroll through the page.</p>
+    <ul id="graph-nodes-list" aria-label="Network nodes"></ul>
+  </div>
+
+  <!-- Node tooltip (hover reveal, not click panel) -->
+  <div class="node-tooltip" id="node-tooltip" role="tooltip" aria-hidden="true">
+    <div class="tooltip-category" id="tooltip-category"></div>
+    <div class="tooltip-title" id="tooltip-title"></div>
+    <div class="tooltip-body" id="tooltip-body"></div>
+  </div>
+  
+  <!-- Nav -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Raychard Huang, home">RH<span class="logo-dot"></span></a>
+      
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+
+      <div class="nav-links" id="nav-menu" role="menubar">
+        <a href="#thesis" class="nav-link" role="menuitem"><span>Thesis</span></a>
+        <a href="#network" class="nav-link" role="menuitem"><span>Network</span></a>
+        <a href="#systems" class="nav-link" role="menuitem"><span>Systems</span></a>
+        <a href="#about" class="nav-link" role="menuitem"><span>Origin</span></a>
+        <a href="#contact" class="nav-link nav-cta" role="menuitem">Let's Talk</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Node counter (bottom-left) -->
+  <div class="node-counter" id="node-counter" aria-live="polite">
+    <span class="counter-value" id="counter-value">1</span>
+    <span class="counter-label">nodes active</span>
+  </div>
+  
+  <main>
+    
+    <!-- ═══ HERO ═══ -->
+    <!-- Floating keyword bubbles -->
+    <div class="hero-bubbles" id="hero-bubbles" aria-hidden="true">
+      <span class="bubble" data-speed="0.8" data-size="lg">Brand Positioning</span>
+      <span class="bubble" data-speed="1.2" data-size="sm">Cultural Insights</span>
+      <span class="bubble" data-speed="0.6" data-size="md">Visual Identity System</span>
+      <span class="bubble" data-speed="1.0" data-size="sm">Go-to-Market</span>
+      <span class="bubble" data-speed="0.9" data-size="lg">Story Architecture</span>
+      <span class="bubble" data-speed="1.3" data-size="md">Brand Audit</span>
+      <span class="bubble" data-speed="0.7" data-size="sm">Employer Branding</span>
+      <span class="bubble" data-speed="1.1" data-size="md">Messaging Framework</span>
+      <span class="bubble" data-speed="0.5" data-size="sm">Competitive Analysis</span>
+      <span class="bubble" data-speed="1.4" data-size="lg">Value Proposition</span>
+      <span class="bubble" data-speed="0.8" data-size="sm">Naming & Nomenclature</span>
+      <span class="bubble" data-speed="1.0" data-size="md">Launch Strategy</span>
+      <span class="bubble" data-speed="0.6" data-size="sm">Brand Architecture</span>
+      <span class="bubble" data-speed="1.2" data-size="md">Consumer Segmentation</span>
+      <span class="bubble" data-speed="0.9" data-size="sm">Tone of Voice</span>
+      <span class="bubble" data-speed="0.7" data-size="lg">Digital Experience</span>
+    </div>
+
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title" id="hero-title">
+          <span class="hero-line" data-speed="0.9"><span class="hero-word">What</span> <span class="hero-word">if</span> <span class="hero-word">every</span></span>
+          <span class="hero-line" data-speed="0.7"><span class="hero-word">project</span> <span class="hero-word">made</span></span>
+          <span class="hero-line" data-speed="0.5"><span class="hero-word">the</span> <span class="hero-word">next</span> <span class="hero-word">one</span> <span class="hero-word hero-italic">smarter?</span></span>
+        </h1>
+        
+        <div class="hero-sub-block">
+          <p class="hero-sub" id="hero-sub">
+            I build brand systems that compound intelligence&thinsp;&mdash;&thinsp;not 
+            strategy decks that gather dust. The network behind this page 
+            is growing as you read.
+          </p>
+          <div class="hero-actions">
+            <a href="#graph-explore" class="btn btn-primary" data-hover>
+              <span>Explore the network</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-hint" id="scroll-hint">
+        <span class="scroll-hint-line"></span>
+      </div>
+    </section>
+
+    <!-- ═══ TYPOGRAPHIC BREAK — Full viewport statement ═══ -->
+    <section class="typographic-break" id="typographic-break" aria-label="Statement">
+      <div class="typo-inner">
+        <p class="typo-statement">
+          <span class="typo-line">Brilliance</span>
+          <span class="typo-line">that can't</span>
+          <span class="typo-line">be <em>told</em></span>
+          <span class="typo-line typo-line-dim">can't be <em>sold.</em></span>
+        </p>
+      </div>
+    </section>
+    
+    <!-- ═══ THESIS ═══ -->
+    <section id="thesis" class="thesis">
+      <div class="container">
+        
+        <div class="section-overline">
+          <span class="overline-index">01</span>
+          <span class="overline-rule"></span>
+          <span class="overline-text">The Problem</span>
+        </div>
+        
+        <h2 class="section-title thesis-title">
+          Every year, companies spend millions on brand strategy.<br>
+          <span class="dim">Twelve months later, most of it is obsolete.</span>
+        </h2>
+        
+        <div class="thesis-flow">
+          
+          <div class="thesis-node" data-node="complexity">
+            <div class="thesis-node-marker">
+              <span class="marker-ring"></span>
+              <span class="marker-dot"></span>
+            </div>
+            <div class="thesis-node-content">
+              <h3>Brilliance that can't be told can't be sold.</h3>
+              <p>I've watched billion-dollar technologies die in conference rooms because no one could explain why they mattered. The gap between complexity and story is where most innovation gets buried.</p>
+            </div>
+          </div>
+
+          <div class="thesis-connector" aria-hidden="true">
+            <svg viewBox="0 0 2 60" preserveAspectRatio="none"><line x1="1" y1="0" x2="1" y2="60" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/></svg>
+          </div>
+          
+          <div class="thesis-node" data-node="vision">
+            <div class="thesis-node-marker">
+              <span class="marker-ring"></span>
+              <span class="marker-dot"></span>
+            </div>
+            <div class="thesis-node-content">
+              <h3>Vision without architecture is just a daydream.</h3>
+              <p>Everyone has a "five-year vision." Almost no one has the strategic architecture to survive year two. I build the scaffolding that turns ambitious thinking into executable reality.</p>
+            </div>
+          </div>
+
+          <div class="thesis-connector" aria-hidden="true">
+            <svg viewBox="0 0 2 60" preserveAspectRatio="none"><line x1="1" y1="0" x2="1" y2="60" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/></svg>
+          </div>
+          
+          <div class="thesis-node" data-node="technology">
+            <div class="thesis-node-marker">
+              <span class="marker-ring"></span>
+              <span class="marker-dot"></span>
+            </div>
+            <div class="thesis-node-content">
+              <h3>The most advanced technology is invisible until someone gives it a voice.</h3>
+              <p>Edge AI. Precision instruments. Flow dynamics. These aren't simple products. They need a translator who speaks both engineering and emotion.</p>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="thesis-pivot">
+          <div class="pivot-rule"></div>
+          <p class="pivot-text">
+            Most consulting delivers a moment of clarity&thinsp;&mdash;&thinsp;then entropy takes over. 
+            I got tired of watching good strategy decay. So I started building 
+            systems that don't just deliver intelligence. <em>They compound it.</em>
+          </p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ═══ GRAPH EXPLORATION — Full viewport ═══ -->
+    <section id="graph-explore" class="graph-explore" aria-label="Interactive intelligence network">
+      <div class="graph-explore-inner">
+        <div class="graph-explore-label">
+          <span class="overline-index">◆</span>
+          <span>Explore the network</span>
+          <span class="graph-explore-hint">Hover nodes to reveal stories · The graph grows as you scroll</span>
+        </div>
+      </div>
+      <!-- No-JS fallback -->
+      <div class="graph-fallback" style="display:none;">
+        <div class="container">
+          <h2>The Intelligence Network</h2>
+          <p>An interactive network visualization connects all projects and systems described below.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ═══ NETWORK (was WORK) — Visual cards with compound thread ═══ -->
+    <section id="network" class="network">
+      <div class="container">
+        
+        <div class="section-overline">
+          <span class="overline-index">02</span>
+          <span class="overline-rule"></span>
+          <span class="overline-text">The Network</span>
+        </div>
+        
+        <h2 class="section-title">
+          Each project created connections<br>
+          <span class="dim">that made the next one possible.</span>
+        </h2>
+        
+        <!-- SVG thread connecting all cards -->
+        <div class="compound-thread" id="compound-thread">
+          <svg class="thread-svg" id="thread-svg" aria-hidden="true"></svg>
+
+          <!-- ROW 1: Featured full-width -->
+          <article class="work-card work-card--featured" data-node="innodisk" data-gradient="teal">
+            <div class="card-visual">
+              <div class="card-gradient"></div>
+              <div class="card-pattern" aria-hidden="true"></div>
+            </div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-year">2024</span>
+                <span class="card-dot"></span>
+                <span class="card-category">Brand Architecture</span>
+              </div>
+              <h3 class="card-title">Edge AI Storage Leader</h3>
+              <p class="card-desc">The world's best-kept secret in Edge AI — rebuilt their brand around one truth: they don't sell components, they architect intelligence at the edge.</p>
+              <div class="card-metrics">
+                <div class="metric"><span class="metric-value">NVIDIA Elite</span><span class="metric-label">Partnership tier unlocked</span></div>
+                <div class="metric"><span class="metric-value">+60%</span><span class="metric-label">Brand recall lift</span></div>
+              </div>
+            </div>
+            <div class="card-thread-tag">Deep-tech positioning → industrial IoT, semiconductor leaders</div>
+          </article>
+
+          <!-- ROW 2: Two side-by-side -->
+          <div class="work-row work-row--split">
+            <article class="work-card work-card--half" data-node="chroma" data-gradient="amber">
+              <div class="card-visual">
+                <div class="card-gradient"></div>
+                <div class="card-pattern" aria-hidden="true"></div>
+              </div>
+              <div class="card-content">
+                <div class="card-meta">
+                  <span class="card-year">2023</span>
+                  <span class="card-dot"></span>
+                  <span class="card-category">Brand Narrative</span>
+                </div>
+                <h3 class="card-title">Precision Test &amp; Measurement</h3>
+                <p class="card-desc">Precision test instruments validating EV batteries to 5G chips. Flawless data sheets, invisible story. Three weeks in their labs changed everything.</p>
+                <div class="card-metrics">
+                  <div class="metric"><span class="metric-value">+45%</span><span class="metric-label">Revenue pipeline</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card work-card--half" data-node="advantech" data-gradient="gold">
+              <div class="card-visual">
+                <div class="card-gradient"></div>
+                <div class="card-pattern" aria-hidden="true"></div>
+              </div>
+              <div class="card-content">
+                <div class="card-meta">
+                  <span class="card-year">2023</span>
+                  <span class="card-dot"></span>
+                  <span class="card-category">Strategic Positioning</span>
+                </div>
+                <h3 class="card-title">Industrial Computing Pioneer</h3>
+                <p class="card-desc">Forty years of industrial computing, still seen as a hardware vendor. Shifted the conversation from cost to partnership value.</p>
+                <div class="card-metrics">
+                  <div class="metric"><span class="metric-value">40yr</span><span class="metric-label">Heritage repositioned</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- ROW 3: Featured full-width (convergence) -->
+          <article class="work-card work-card--featured work-card--convergence" data-node="mediatek" data-gradient="copper">
+            <div class="card-visual">
+              <div class="card-gradient"></div>
+              <div class="card-pattern" aria-hidden="true"></div>
+            </div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-year">2024</span>
+                <span class="card-dot"></span>
+                <span class="card-category">Employer Brand Strategy</span>
+                <span class="card-convergence-badge">◆ Convergence</span>
+              </div>
+              <h3 class="card-title">Global Semiconductor Giant</h3>
+              <p class="card-desc">Chips in 2 billion devices, losing talent to louder brands. Reframed their mission: democratizing technology that shapes daily life for billions.</p>
+              <div class="card-metrics">
+                <div class="metric"><span class="metric-value">2B+</span><span class="metric-label">Devices powered</span></div>
+                <div class="metric"><span class="metric-value">3</span><span class="metric-label">Markets repositioned</span></div>
+              </div>
+            </div>
+            <div class="card-thread-tag">Edge AI positioning + precision testing → converged here</div>
+          </article>
+
+          <!-- ROW 4: Featured with system birth -->
+          <article class="work-card work-card--featured work-card--system-birth" data-node="kikawa" data-gradient="rust">
+            <div class="card-visual">
+              <div class="card-gradient"></div>
+              <div class="card-pattern" aria-hidden="true"></div>
+            </div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-year">2024</span>
+                <span class="card-dot"></span>
+                <span class="card-category">Brand Operating System</span>
+              </div>
+              <h3 class="card-title">Industrial Flow Systems Pioneer</h3>
+              <p class="card-desc">A 50-year pump manufacturer meets AI. Built an AI-augmented knowledge base that captures institutional wisdom and feeds it forward. MaestrOS was born here.</p>
+              <div class="card-metrics">
+                <div class="metric"><span class="metric-value">-40%</span><span class="metric-label">Time-to-market</span></div>
+                <div class="metric"><span class="metric-value">50yr</span><span class="metric-label">Wisdom digitized</span></div>
+              </div>
+            </div>
+            <div class="card-thread-tag">Compound intelligence became a system → MaestrOS born</div>
+          </article>
+
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ═══ SECOND TYPOGRAPHIC MOMENT — breaks the grid ═══ -->
+    <section class="typographic-break typographic-break--pull" aria-label="Pull quote">
+      <div class="typo-pull">
+        <p class="pull-quote">
+          I got tired of watching good strategy decay.
+        </p>
+        <p class="pull-attribution">
+          &mdash;&thinsp;So I started building systems that don't just deliver intelligence. They compound it.
+        </p>
+      </div>
+    </section>
+    
+    <!-- ═══ SYSTEMS ═══ -->
+    <section id="systems" class="systems">
+      <div class="container">
+        
+        <div class="section-overline">
+          <span class="overline-index">03</span>
+          <span class="overline-rule"></span>
+          <span class="overline-text">The Proof</span>
+        </div>
+        
+        <h2 class="section-title">
+          Intelligence that compounds<br>
+          <span class="dim">needs a system to live in.</span>
+        </h2>
+        
+        <div class="systems-pair">
+          
+          <div class="system-card" data-node="maestros" data-hover>
+            <h3 class="system-title">MaestrOS</h3>
+            <p class="system-tagline">Brand Orchestration System</p>
+            <p class="system-desc">An AI-augmented operating system that captures every brand decision, learns from every campaign, and feeds intelligence forward. Not a brand guide that sits on a shelf&thinsp;&mdash;&thinsp;a living system that gets smarter with use.</p>
+            <div class="system-pulse" aria-hidden="true">
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+            </div>
+          </div>
+          
+          <div class="system-connector" aria-hidden="true">
+            <svg viewBox="0 0 80 2" preserveAspectRatio="none"><line x1="0" y1="1" x2="80" y2="1" stroke="currentColor" stroke-width="1" stroke-dasharray="6 4"/></svg>
+          </div>
+
+          <div class="system-card" data-node="brandos" data-hover>
+            <h3 class="system-title">BrandOS</h3>
+            <p class="system-tagline">Brand Operating System</p>
+            <p class="system-desc">A structural framework that unifies brand expression across geographies, channels, and teams&thinsp;&mdash;&thinsp;while preserving local intelligence. Every local insight strengthens the global system.</p>
+            <div class="system-pulse" aria-hidden="true">
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="systems-proof">
+          <p>These aren't theoretical frameworks. They're running systems, built from real projects, refined by real results. Each client engagement feeds intelligence back into the methodology&thinsp;&mdash;&thinsp;which is exactly the point.</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ═══ THIRD TYPOGRAPHIC BREAK — before about ═══ -->
+    <section class="typographic-break typographic-break--third" aria-label="Statement">
+      <div class="typo-inner">
+        <p class="typo-statement typo-statement--mid">
+          <span class="typo-line">Systems break.</span>
+          <span class="typo-line">What matters is</span>
+          <span class="typo-line">whether they</span>
+          <span class="typo-line">break <em>forward.</em></span>
+        </p>
+      </div>
+    </section>
+    
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about" class="about">
+      <div class="container">
+        
+        <div class="section-overline">
+          <span class="overline-index">04</span>
+          <span class="overline-rule"></span>
+          <span class="overline-text">Origin</span>
+        </div>
+        
+        <div class="about-layout">
+          
+          <div class="about-content">
+            <h2 class="section-title about-title">
+              Process engineer.<br>
+              Brand strategist.<br>
+              <span class="dim">Systems architect.</span>
+            </h2>
+            
+            <div class="about-text">
+              <p class="lead">
+                I started my career designing process systems for power plants 
+                and EV charging infrastructure. I learned something that never left me: 
+                the most sophisticated systems in the world fail if the people operating 
+                them don't understand why they matter.
+              </p>
+              <p>
+                That realization pulled me into brand strategy. For fifteen years, 
+                I've worked at the intersection of technology and meaning&thinsp;&mdash;&thinsp;helping 
+                leaders across semiconductor fabrication, chip design, edge AI, and industrial computing close the gap 
+                between what they build and what the world understands.
+              </p>
+              <p class="about-vulnerable">
+                The honest part: the first three years were humbling. I came from engineering 
+                where problems had solutions. Brand strategy has no right answers&thinsp;&mdash;&thinsp;only 
+                better questions. I failed spectacularly before I found my footing. 
+                That failure taught me more than any success: systems break. What matters 
+                is whether they break forward.
+              </p>
+              <p>
+                Today, as Creative Intelligence Officer at <a href="https://red-peak.com" data-hover>RedPeak</a>&thinsp;&mdash;&thinsp;part 
+                of the <a href="https://kyu.com" data-hover>kyu Collective</a>&thinsp;&mdash;&thinsp;I lead strategic 
+                engagements across Asia's technology sector. My approach is shaped by 
+                an engineer's insistence on systems, a strategist's instinct for narrative, 
+                and a musician's ear for resonance.
+              </p>
+              <p>
+                When I'm not building brand systems, I play the handpan&thinsp;&mdash;&thinsp;a 
+                steel instrument where every note resonates with every other. 
+                It's not a bad metaphor for how I think about brands.
+              </p>
+            </div>
+          </div>
+          
+          <div class="about-signal">
+            <div class="signal-block">
+              <span class="signal-label">Currently</span>
+              <span class="signal-value">Creative Intelligence Officer, RedPeak</span>
+              <span class="signal-sub">kyu Collective</span>
+            </div>
+            <div class="signal-block">
+              <span class="signal-label">Based in</span>
+              <span class="signal-value">Taipei, Taiwan</span>
+            </div>
+            <div class="signal-block">
+              <span class="signal-label">Background</span>
+              <span class="signal-value">Process Engineering</span>
+              <span class="signal-sub">EV Infrastructure → Brand Strategy → AI Systems</span>
+            </div>
+            <div class="signal-block">
+              <span class="signal-label">Off the clock</span>
+              <span class="signal-value">Handpan · Photography · Systems</span>
+            </div>
+            <div class="signal-block">
+              <span class="signal-label">Trajectory</span>
+              <div class="signal-timeline">
+                <div class="tl-node"><span class="tl-year">2005</span><span class="tl-label">Process Eng.</span></div>
+                <div class="tl-connector"></div>
+                <div class="tl-node"><span class="tl-year">2008</span><span class="tl-label">EV Infra.</span></div>
+                <div class="tl-connector"></div>
+                <div class="tl-node"><span class="tl-year">2010</span><span class="tl-label">Brand Strategy</span></div>
+                <div class="tl-connector active"></div>
+                <div class="tl-node active"><span class="tl-year">Now</span><span class="tl-label">AI + Brand</span></div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="contact">
+      <!-- Ambient floating nodes canvas -->
+      <canvas id="contact-canvas" class="contact-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="contact-content">
+          
+          <h2 class="contact-title" id="contact-title">
+            <span class="contact-word">The</span>
+            <span class="contact-word">network</span>
+            <span class="contact-word">keeps</span>
+            <span class="contact-word">growing.</span>
+          </h2>
+          <p class="contact-sub-line dim">Your project could be the next node.</p>
+          
+          <p class="contact-sub">
+            Whether it's brand architecture, strategic repositioning, 
+            or building a system that learns&thinsp;&mdash;&thinsp;it starts with a conversation.
+          </p>
+          
+          <div class="contact-links">
+            <a href="mailto:hi@raychard.co" class="btn btn-primary btn-lg btn-magnetic" id="btn-email" data-hover>
+              <span>hi@raychard.co</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/hsinhsiangh/" class="btn btn-ghost" target="_blank" rel="noopener" data-hover>
+              <span>LinkedIn</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <footer class="footer">
+    <div class="container footer-row">
+      <span>&copy; 2025 Raychard Huang</span>
+      <span class="footer-tag">Intelligence compounding since 2010</span>
+    </div>
+  </footer>
+  
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raychard.co — Design Directions</title>
+  <meta name="description" content="Four design directions for raychard.co. Which one resonates?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #08080A;
+      --surface: #111114;
+      --surface-hover: #18181C;
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --text: #F0ECE4;
+      --text-2: rgba(240,236,228,0.6);
+      --text-3: rgba(240,236,228,0.35);
+      --amber: #D4A053;
+      --amber-dim: rgba(212,160,83,0.15);
+      --copper: #C07840;
+      --teal: #2A9D8F;
+      --rust: #A85C3A;
+      --gold: #C4A44E;
+      --font-display: 'Instrument Serif', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    html { -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(8,8,10,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-2);
+    }
+    .nav-brand span { color: var(--amber); }
+    .nav-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+      background: var(--amber-dim);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 10rem 2.5rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-2);
+      line-height: 1.6;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: var(--border-hover);
+      background: var(--surface-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+    }
+    .card:hover .card-preview {
+      transform: scale(1.02);
+    }
+    .card:hover .card-arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    .card-preview {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card-preview iframe {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+    }
+    .card-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, var(--surface) 100%);
+      z-index: 2;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 3;
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.6rem;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+    .badge-current {
+      background: rgba(255,255,255,0.08);
+      color: var(--text-2);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .badge-d1 {
+      background: rgba(192,120,64,0.15);
+      color: var(--copper);
+      border: 1px solid rgba(192,120,64,0.25);
+    }
+    .badge-d2 {
+      background: rgba(212,160,83,0.15);
+      color: var(--amber);
+      border: 1px solid rgba(212,160,83,0.25);
+    }
+    .badge-d3 {
+      background: rgba(42,157,143,0.15);
+      color: var(--teal);
+      border: 1px solid rgba(42,157,143,0.25);
+    }
+
+    .card-body {
+      padding: 1.5rem 1.75rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-number {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+      margin-bottom: 0.75rem;
+    }
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .card h2 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+    .card-desc {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .card-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-3);
+      background: rgba(255,255,255,0.03);
+      padding: 0.25rem 0.5rem;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+    }
+    .card-arrow {
+      font-size: 1.25rem;
+      color: var(--amber);
+      opacity: 0.5;
+      transition: all 0.3s ease;
+    }
+
+    /* Accent stripe on hover */
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card:hover::after { transform: scaleX(1); }
+
+    .card[data-accent="copper"]::after { background: var(--copper); }
+    .card[data-accent="amber"]::after { background: var(--amber); }
+    .card[data-accent="teal"]::after { background: var(--teal); }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 2.5rem 3rem;
+      border-top: 1px solid var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer p {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .footer p span { color: var(--amber); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; padding: 2rem 1.25rem 4rem; }
+      .hero { padding: 8rem 1.25rem 2.5rem; }
+      .nav { padding: 1rem 1.25rem; }
+    }
+
+    /* ── ENTRANCE ANIMATION ── */
+    .card {
+      opacity: 0;
+      transform: translateY(32px);
+      animation: cardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes cardIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow, .hero h1, .hero p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hero-eyebrow { animation-delay: 0s; }
+    .hero h1 { animation-delay: 0.1s; }
+    .hero p { animation-delay: 0.2s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">Raychard <span>.</span> co</div>
+    <div class="nav-tag">Design Directions Preview</div>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-eyebrow">Which direction resonates?</p>
+    <h1>Four visions for <em>raychard.co</em></h1>
+    <p>The current site alongside three new creative directions. Scroll through each, feel the experience, and pick the one that speaks to you.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Current -->
+    <a class="card" href="https://raychard.co" target="_blank" data-accent="amber">
+      <div class="card-preview">
+        <iframe src="https://raychard.co" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
+        <div class="card-preview-overlay"></div>
+        <span class="card-badge badge-current">Current</span>
+      </div>
+      <div class="card-body">
+        <div class="card-number">00 — Live Site</div>
+        <h2>The Original</h2>
+        <p class="card-desc">The current raychard.co — the baseline. Clean, functional, tells the story. The question: can we go from good to unforgettable?</p>
+        <div class="card-meta">
+          <div class="card-tags">
+            <span class="card-tag">Next.js</span>
+            <span class="card-tag">Live</span>
+          </div>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- D1 Resonate -->
+    <a class="card" href="/d1" target="_blank" data-accent="copper">
+      <div class="card-preview">
+        <iframe src="/d1" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
+        <div class="card-preview-overlay"></div>
+        <span class="card-badge badge-d1">Direction 1</span>
+      </div>
+      <div class="card-body">
+        <div class="card-number">01 — Resonate</div>
+        <h2>The <em>Frequency</em></h2>
+        <p class="card-desc">Light mode. Audio-reactive particles. FM synthesis tied to scroll. Each section is a frequency on a handpan scale. The site is an instrument you play by scrolling.</p>
+        <div class="card-meta">
+          <div class="card-tags">
+            <span class="card-tag">Light Mode</span>
+            <span class="card-tag">Audio</span>
+            <span class="card-tag">Particles</span>
+          </div>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- D2 Compound -->
+    <a class="card" href="/d2" target="_blank" data-accent="amber">
+      <div class="card-preview">
+        <iframe src="/d2" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
+        <div class="card-preview-overlay"></div>
+        <span class="card-badge badge-d2">Direction 2</span>
+      </div>
+      <div class="card-body">
+        <div class="card-number">02 — Compound Intelligence</div>
+        <h2>The <em>Network</em></h2>
+        <p class="card-desc">Dark earth tones. A living intelligence graph that grows as you scroll. Luminous nodes, bezier connections, viewport-scale typography. Every project feeds the next.</p>
+        <div class="card-meta">
+          <div class="card-tags">
+            <span class="card-tag">Dark Mode</span>
+            <span class="card-tag">Graph</span>
+            <span class="card-tag">GSAP</span>
+          </div>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- D3 Foresight -->
+    <a class="card" href="/d3" target="_blank" data-accent="teal">
+      <div class="card-preview">
+        <iframe src="/d3" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
+        <div class="card-preview-overlay"></div>
+        <span class="card-badge badge-d3">Direction 3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-number">03 — Strategic Foresight</div>
+        <h2>The <em>Simulator</em></h2>
+        <p class="card-desc">Interactive strategic decision simulator. Step into a CEO's midnight, make real choices, see real outcomes. The site proves the thinking before you hire it.</p>
+        <div class="card-meta">
+          <div class="card-tags">
+            <span class="card-tag">Interactive</span>
+            <span class="card-tag">Simulator</span>
+            <span class="card-tag">Canvas</span>
+          </div>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <footer class="footer">
+    <p>Built with <span>WebOS</span> — Raychard's AI-native design system</p>
+  </footer>
+
+</body>
+</html>

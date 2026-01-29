@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raychard Huang — Brand Strategist</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <meta name="description" content="Your technology is years ahead. Your brand hasn't caught up. Raychard Huang helps deep-tech leaders close the gap.">
+  <meta property="og:title" content="Raychard Huang — Brand Strategist">
+  <meta property="og:description" content="Your technology is years ahead. Your brand hasn't caught up.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1C1917">
+  
+
+  <noscript>
+    <style>
+      .hero-line, .hero-bottom, .scroll-cue,
+      .reveal-up, .reveal-fade, .reveal-line,
+      .case, .crescendo-text, .crescendo-sub,
+      .typo-break-line, .compound-thread-item,
+      .system-card, .systems-proof-text {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+  <script type="module" crossorigin src="/assets/index-CyCCc4wV.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CLHf3vO0.css">
+</head>
+<body>
+  
+  <a href="#tension" class="skip-link">Skip to content</a>
+  
+  <!-- Page load curtain -->
+  <div class="load-curtain" id="load-curtain" aria-hidden="true">
+    <div class="curtain-freq">293 Hz</div>
+  </div>
+  
+  <!-- Film grain overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+  
+  <!-- Canvas for resonance particles -->
+  <canvas id="resonance-canvas" aria-hidden="true"></canvas>
+  
+  <!-- Ripple cursor canvas -->
+  <canvas id="ripple-canvas" aria-hidden="true"></canvas>
+  
+  <!-- Waveform oscilloscope (bottom-left) -->
+  <div class="waveform-display" id="waveform-display" aria-hidden="true">
+    <canvas id="waveform-canvas" width="160" height="48"></canvas>
+    <div class="waveform-info">
+      <span class="freq-hz" id="freq-hz">293 Hz</span>
+      <span class="freq-divider">/</span>
+      <span class="freq-note" id="freq-note">D4</span>
+    </div>
+  </div>
+  
+  <!-- Audio toggle -->
+  <button id="audio-toggle" class="audio-toggle" aria-label="Toggle sound experience">
+    <span class="audio-icon">
+      <svg class="icon-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      </svg>
+      <svg class="icon-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+    </span>
+    <span class="audio-label">Sound</span>
+  </button>
+  
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-text">Raychard Huang</span>
+      </a>
+      <div class="nav-links">
+        <a href="#tension" class="nav-link"><span class="nav-num">01</span> The Gap</a>
+        <a href="#proof" class="nav-link"><span class="nav-num">02</span> Proof</a>
+        <a href="#systems" class="nav-link"><span class="nav-num">03</span> Systems</a>
+        <a href="#origin" class="nav-link"><span class="nav-num">04</span> Origin</a>
+        <a href="#contact" class="nav-link nav-cta">Start a Conversation</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#tension" class="mobile-link">The Gap</a>
+    <a href="#proof" class="mobile-link">Proof</a>
+    <a href="#systems" class="mobile-link">Systems</a>
+    <a href="#origin" class="mobile-link">Origin</a>
+    <a href="#contact" class="mobile-link">Start a Conversation</a>
+  </div>
+  
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  
+  <main>
+    
+    <!-- ═══════ FREQUENCY 01 · HERO ═══════ -->
+    <section id="hero" class="hero" data-frequency="293.66" data-note="D4">
+      <div class="hero-inner">
+        
+        <h1 class="hero-title" id="hero-title">
+          <span class="hero-line hero-line-1">Your technology is</span>
+          <span class="hero-line hero-line-2">ten years ahead.</span>
+          <span class="hero-line hero-line-3">Your brand is</span>
+          <span class="hero-line hero-line-4"><em>ten years behind.</em></span>
+        </h1>
+        
+        <div class="hero-bottom">
+          <p class="hero-sub">
+            I close that gap. For deep-tech leaders who build what the world 
+            isn't ready to understand yet.
+          </p>
+        </div>
+        
+      </div>
+      
+      <div class="scroll-cue">
+        <div class="scroll-line"></div>
+        <span class="scroll-label">Scroll to resonate</span>
+      </div>
+    </section>
+
+    <!-- ═══════ TYPOGRAPHIC BREAK — First viewport punch ═══════ -->
+    <section class="typo-break" id="typo-break-1" aria-label="Statement">
+      <div class="typo-break-inner">
+        <p class="typo-break-statement">
+          <span class="typo-break-line">Brilliance</span>
+          <span class="typo-break-line">that can't</span>
+          <span class="typo-break-line">be <em>told</em></span>
+          <span class="typo-break-line typo-break-line--dim">can't be <em>sold.</em></span>
+        </p>
+      </div>
+    </section>
+    
+    <!-- ═══════ FREQUENCY 02 · TENSION ═══════ -->
+    <section id="tension" class="tension" data-frequency="392.00" data-note="G4">
+      <div class="container">
+        
+        <div class="section-label">
+          <span class="label-num">01</span>
+          <span class="label-line"></span>
+          <span class="label-text">The Problem</span>
+        </div>
+        
+        <div class="tension-content">
+          <h2 class="tension-headline" data-split>
+            You've spent decades perfecting what you make.<br>
+            You've spent almost nothing on what it means.
+          </h2>
+          
+          <div class="tension-body">
+            <div class="tension-col">
+              <p>
+                I've sat across the table from some of the most brilliant 
+                engineers in Asia. People building edge AI chipsets, 
+                semiconductor test infrastructure, industrial IoT platforms 
+                that run entire factories.
+              </p>
+              <p>
+                And every single one had the same problem: their technology 
+                was extraordinary, and nobody outside their industry knew it.
+              </p>
+            </div>
+            <div class="tension-col">
+              <p>
+                The RFPs went to the company with the better story. The 
+                talent chose the employer with the clearer mission. The 
+                investors backed the team that could explain what they do 
+                in one sentence.
+              </p>
+              <p class="tension-accent">
+                The gap between what you build and what the world 
+                understands isn't a marketing problem. It's a survival problem.
+              </p>
+            </div>
+          </div>
+          
+          <!-- The Gap — visceral visual, not just a dashed line -->
+          <div class="gap-visual" aria-hidden="true">
+            <div class="gap-chasm">
+              <div class="gap-side-left">
+                <span class="gap-label">What you've built</span>
+                <div class="gap-bar gap-bar--full"></div>
+              </div>
+              <div class="gap-void">
+                <div class="gap-void-inner">
+                  <div class="gap-fracture gap-fracture--1"></div>
+                  <div class="gap-fracture gap-fracture--2"></div>
+                  <div class="gap-fracture gap-fracture--3"></div>
+                  <div class="gap-fracture gap-fracture--4"></div>
+                  <div class="gap-fracture gap-fracture--5"></div>
+                  <span class="gap-void-text">The gap</span>
+                </div>
+              </div>
+              <div class="gap-side-right">
+                <span class="gap-label">What the world sees</span>
+                <div class="gap-bar gap-bar--empty"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Grid-breaking element: bleeding headline -->
+      <div class="bleed-headline" aria-hidden="true">
+        <span class="bleed-text">THE GAP</span>
+      </div>
+    </section>
+    
+    <!-- ═══════ FREQUENCY 03 · PROOF — Compound Thread ═══════ -->
+    <section id="proof" class="proof" data-frequency="440.00" data-note="A4">
+      <div class="container">
+        
+        <div class="section-label">
+          <span class="label-num">02</span>
+          <span class="label-line"></span>
+          <span class="label-text">Proof</span>
+        </div>
+        
+        <h2 class="proof-headline" data-split>
+          Each project created connections<br>
+          <span class="dim">that made the next one possible.</span>
+        </h2>
+        
+        <!-- Compound thread: shows HOW intelligence flows between projects -->
+        <div class="compound-thread">
+
+          <article class="compound-thread-item" data-harmonic="1.0" data-color="var(--color-teal)">
+            <div class="thread-index">
+              <span class="thread-year">2024</span>
+              <span class="thread-dot" style="--dot-color: var(--color-teal);"></span>
+              <span class="thread-line" aria-hidden="true"></span>
+            </div>
+            <div class="thread-body">
+              <div class="thread-header">
+                <span class="thread-category">Brand Architecture</span>
+              </div>
+              <h3 class="thread-title">Edge AI Storage Leader</h3>
+              <p class="thread-story">
+                They were the best-kept secret in edge AI. A storage component 
+                vendor with technology that powered autonomous vehicles, smart 
+                factories, space missions — and a brand that said none of it. 
+                We rebuilt their entire narrative around one idea: they don't 
+                sell storage, they architect intelligence. Within a year, 
+                tier-one partnerships with the world's largest chip platforms.
+              </p>
+              <div class="thread-connection">
+                <span class="thread-arrow">→</span>
+                <span class="thread-connection-text">This project taught me how to translate deep-tech positioning — a pattern I'd use again across industrial computing and semiconductor branding.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="compound-thread-item" data-harmonic="1.25" data-color="var(--color-amber)">
+            <div class="thread-index">
+              <span class="thread-year">2023</span>
+              <span class="thread-dot" style="--dot-color: var(--color-amber);"></span>
+              <span class="thread-line" aria-hidden="true"></span>
+            </div>
+            <div class="thread-body">
+              <div class="thread-header">
+                <span class="thread-category">Brand Narrative</span>
+              </div>
+              <h3 class="thread-title">Precision Test & Measurement</h3>
+              <p class="thread-story">
+                They build precision test instruments that validate everything 
+                from EV batteries to 5G chips. Their data sheets were flawless. 
+                Their story was invisible. I spent three weeks in their labs, 
+                watching engineers test components that would end up in products 
+                used by billions. The brand narrative I built didn't simplify 
+                what they do — it elevated it.
+              </p>
+              <div class="thread-connection">
+                <span class="thread-arrow">→</span>
+                <span class="thread-connection-text">Understanding precision measurement gave me the language for semiconductor branding — directly useful when the next chipmaker came calling.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="compound-thread-item" data-harmonic="1.5" data-color="var(--color-copper)">
+            <div class="thread-index">
+              <span class="thread-year">2024</span>
+              <span class="thread-dot" style="--dot-color: var(--color-copper);"></span>
+              <span class="thread-line" aria-hidden="true"></span>
+            </div>
+            <div class="thread-body">
+              <div class="thread-header">
+                <span class="thread-category">Employer Brand Strategy</span>
+              </div>
+              <h3 class="thread-title">Global Semiconductor Giant</h3>
+              <p class="thread-story">
+                Their chips power 2 billion devices a year, but in the 
+                US and India talent markets, they were losing engineers to 
+                companies with louder brands. The challenge wasn't awareness — 
+                it was perception. I built an employer brand strategy that 
+                reframed their mission: not just making chips, but 
+                democratizing the technology that shapes daily life for billions 
+                of people who'll never know their name.
+              </p>
+              <div class="thread-convergence">
+                <span class="convergence-label">◆ Convergence point</span>
+                <span class="convergence-text">Everything I learned about deep-tech positioning in edge AI and precision language in test & measurement converged here.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="compound-thread-item" data-harmonic="1.667" data-color="var(--color-rust)">
+            <div class="thread-index">
+              <span class="thread-year">2024</span>
+              <span class="thread-dot" style="--dot-color: var(--color-rust);"></span>
+              <span class="thread-line" aria-hidden="true"></span>
+            </div>
+            <div class="thread-body">
+              <div class="thread-header">
+                <span class="thread-category">Brand Operating System</span>
+              </div>
+              <h3 class="thread-title">Industrial Flow Systems Pioneer</h3>
+              <p class="thread-story">
+                When a 50-year pump manufacturer asked me to help them speak 
+                to the AI generation, I knew exactly where to start — in 
+                their engineering archives. Their mastery of flow dynamics 
+                was extraordinary, but locked in the heads of retiring engineers. 
+                I built them a complete Brand Operating System: not just a visual 
+                identity, but an AI-augmented knowledge base that captures 
+                institutional wisdom and feeds it forward. Time-to-market 
+                dropped 40%.
+              </p>
+              <div class="thread-connection">
+                <span class="thread-arrow">→</span>
+                <span class="thread-connection-text">This is where the resonance idea became a system — MaestrOS was born from this project.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="compound-thread-item" data-harmonic="2.0" data-color="var(--brass-500)">
+            <div class="thread-index">
+              <span class="thread-year">2023</span>
+              <span class="thread-dot" style="--dot-color: var(--brass-500);"></span>
+            </div>
+            <div class="thread-body">
+              <div class="thread-header">
+                <span class="thread-category">Strategic Positioning</span>
+              </div>
+              <h3 class="thread-title">Industrial Computing Pioneer</h3>
+              <p class="thread-story">
+                Forty years of industrial computing heritage, and the market 
+                still talked about them as a hardware vendor. I helped them 
+                shift the entire market conversation — from "what does this 
+                board cost?" to "what does this partnership enable?" The pattern 
+                of "component to platform" repositioning I developed here became 
+                a repeatable playbook across Taiwan's tech sector.
+              </p>
+              <div class="thread-convergence">
+                <span class="convergence-label">◆ Pattern crystallized</span>
+                <span class="convergence-text">Five engagements. Five industries. One compounding method. Every project fed the next.</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- ═══════ FREQUENCY 03.5 · CRESCENDO ═══════ -->
+    <!-- The transcendent moment. Particles go foreground. Typography explodes. -->
+    <section id="crescendo" class="crescendo" data-frequency="523.25" data-note="C5">
+      <div class="crescendo-inner">
+        <div class="crescendo-text-wrap">
+          <div class="crescendo-text" aria-label="Every frequency matters">
+            <span class="crescendo-word crescendo-word--1">Every</span>
+            <span class="crescendo-word crescendo-word--2">frequency</span>
+            <span class="crescendo-word crescendo-word--3">matters.</span>
+          </div>
+          <p class="crescendo-sub">
+            When a brand resonates, you don't just see it. You feel it.
+          </p>
+        </div>
+        <!-- Rotated disobedience element -->
+        <div class="crescendo-rotate" aria-hidden="true">Resonate</div>
+      </div>
+    </section>
+
+    <!-- ═══════ TYPOGRAPHIC BREAK — Second punch (pull quote) ═══════ -->
+    <section class="typo-break typo-break--pull" id="typo-break-2" aria-label="Pull quote">
+      <div class="typo-pull">
+        <p class="pull-quote">
+          Systems break. What matters is whether they break <em>forward.</em>
+        </p>
+        <p class="pull-attribution">
+          —&thinsp;So I stopped building strategies that decay. I started building systems that resonate.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════ FREQUENCY 03.7 · SYSTEMS — The Proof ═══════ -->
+    <section id="systems" class="systems" data-frequency="554.37" data-note="C#5">
+      <div class="container">
+
+        <div class="section-label">
+          <span class="label-num">03</span>
+          <span class="label-line"></span>
+          <span class="label-text">The Proof</span>
+        </div>
+
+        <h2 class="systems-headline" data-split>
+          Resonance isn't just a metaphor.<br>
+          <span class="dim">It's an operating system.</span>
+        </h2>
+
+        <div class="systems-pair">
+          
+          <div class="system-card" data-system="maestros">
+            <h3 class="system-title">MaestrOS</h3>
+            <p class="system-tagline">Brand Orchestration System</p>
+            <p class="system-desc">An AI-augmented operating system that captures every brand decision, learns from every campaign, and feeds intelligence forward. Not a brand guide that sits on a shelf — a living system that gets smarter with use.</p>
+            <div class="system-pulse" aria-hidden="true">
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+            </div>
+          </div>
+
+          <div class="system-connector" aria-hidden="true">
+            <svg viewBox="0 0 80 2" preserveAspectRatio="none"><line x1="0" y1="1" x2="80" y2="1" stroke="currentColor" stroke-width="1" stroke-dasharray="6 4"/></svg>
+          </div>
+
+          <div class="system-card" data-system="brandos">
+            <h3 class="system-title">BrandOS</h3>
+            <p class="system-tagline">Brand Operating System</p>
+            <p class="system-desc">A structural framework that unifies brand expression across geographies, channels, and teams — while preserving local intelligence. Every local insight strengthens the global system.</p>
+            <div class="system-pulse" aria-hidden="true">
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+              <span class="pulse-ring"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="systems-proof-text">
+          <p>These aren't theoretical frameworks. They're running systems, built from real projects, refined by real results. Each client engagement feeds intelligence back into the methodology — which is exactly the point.</p>
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- ═══════ FREQUENCY 04 · ORIGIN ═══════ -->
+    <section id="origin" class="origin" data-frequency="587.33" data-note="D5">
+      <div class="container">
+        
+        <div class="section-label">
+          <span class="label-num">04</span>
+          <span class="label-line"></span>
+          <span class="label-text">Origin</span>
+        </div>
+        
+        <div class="origin-grid">
+          
+          <div class="origin-portrait">
+            <div class="portrait-frame">
+              <img src="/images/portrait.jpg" alt="Raychard Huang" class="portrait-img" loading="lazy" width="400" height="533">
+            </div>
+          </div>
+          
+          <div class="origin-text">
+            
+            <h2 class="origin-headline" data-split>
+              Process engineer.<br>
+              Brand strategist.<br>
+              <span class="dim">Systems architect.</span>
+            </h2>
+            
+            <div class="origin-body">
+              <p class="origin-lead">
+                I started my career designing process systems for power plants 
+                and EV charging infrastructure. I learned something that never left me: 
+                the most sophisticated systems in the world fail if the people operating 
+                them don't understand why they matter.
+              </p>
+              
+              <p>
+                That realization pulled me into brand strategy. For fifteen years, 
+                I've worked at the intersection of technology and meaning — helping 
+                leaders across semiconductor fabrication, chip design, edge AI, and 
+                industrial computing close the gap between what they build and what 
+                the world understands.
+              </p>
+              
+              <div class="origin-vulnerable">
+                <p>
+                  The honest part: the first three years were humbling. I came from 
+                  engineering where problems had solutions. Brand strategy has no right 
+                  answers — only better questions. I failed spectacularly before I found 
+                  my footing. That failure taught me more than any success: systems break. 
+                  What matters is whether they break forward.
+                </p>
+              </div>
+              
+              <p>
+                Today, as Creative Intelligence Officer at 
+                <a href="https://red-peak.com" target="_blank" rel="noopener">RedPeak</a>, 
+                part of the 
+                <a href="https://kyu.com" target="_blank" rel="noopener">kyu Collective</a> — 
+                I lead strategic engagements across Asia's technology sector. My approach 
+                is shaped by an engineer's insistence on systems, a strategist's instinct 
+                for narrative, and a musician's ear for resonance.
+              </p>
+              
+              <div class="origin-personal">
+                <p>
+                  When I'm not building brand systems, I play handpan — a 
+                  steel instrument tuned to specific harmonic frequencies. 
+                  Every note resonates with every other note. Nothing is 
+                  random. That's how I think about brands, too.
+                </p>
+              </div>
+            </div>
+            
+            <div class="origin-creds">
+              <div class="cred-row">
+                <span class="cred-label">Role</span>
+                <span class="cred-value">Creative Intelligence Officer, RedPeak</span>
+              </div>
+              <div class="cred-row">
+                <span class="cred-label">Network</span>
+                <span class="cred-value">kyu Collective</span>
+              </div>
+              <div class="cred-row">
+                <span class="cred-label">Based in</span>
+                <span class="cred-value">Taipei, Taiwan</span>
+              </div>
+              <div class="cred-row">
+                <span class="cred-label">Background</span>
+                <span class="cred-value">Process Engineering → EV Infra → Brand Strategy → AI Systems</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- ═══════ FREQUENCY 05 · CONTACT ═══════ -->
+    <section id="contact" class="contact" data-frequency="659.25" data-note="E5">
+      <div class="container">
+        
+        <div class="contact-inner">
+          
+          <h2 class="contact-title" data-split>
+            Your technology deserves<br>
+            to be understood.
+          </h2>
+          
+          <p class="contact-text">
+            If you've built something the world hasn't caught up to yet — 
+            let's talk. The first conversation is just listening.
+          </p>
+          
+          <div class="contact-links">
+            <a href="mailto:hi@raychard.co" class="contact-link contact-primary">
+              <span>hi@raychard.co</span>
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 5H8M15 5v7" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/hsinhsiangh/" class="contact-link" target="_blank" rel="noopener">
+              <span>LinkedIn</span>
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 5H8M15 5v7" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+    
+  </main>
+  
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-left">&copy; 2025 Raychard Huang</span>
+      <span class="footer-right">Every frequency matters.</span>
+    </div>
+  </footer>
+  
+</body>
+</html>
