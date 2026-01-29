@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raychard.co — Design Directions</title>
-  <meta name="description" content="Four design directions for raychard.co. Which one resonates?">
+  <title>Raychard.co — Which Direction?</title>
+  <meta name="description" content="Vote for your favorite design direction for raychard.co">
+  <meta property="og:title" content="Raychard.co — Which Direction Resonates?">
+  <meta property="og:description" content="Four design directions. One vote. Which one speaks to you?">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,24 +16,27 @@
       --bg: #08080A;
       --surface: #111114;
       --surface-hover: #18181C;
+      --surface-active: #1E1E24;
       --border: rgba(255,255,255,0.06);
-      --border-hover: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.14);
       --text: #F0ECE4;
       --text-2: rgba(240,236,228,0.6);
       --text-3: rgba(240,236,228,0.35);
       --amber: #D4A053;
-      --amber-dim: rgba(212,160,83,0.15);
+      --amber-dim: rgba(212,160,83,0.12);
+      --amber-glow: rgba(212,160,83,0.25);
       --copper: #C07840;
       --teal: #2A9D8F;
       --rust: #A85C3A;
       --gold: #C4A44E;
+      --green: #4ADE80;
       --font-display: 'Instrument Serif', serif;
       --font-body: 'Inter', sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    html { -webkit-font-smoothing: antialiased; }
-
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     body {
       font-family: var(--font-body);
       background: var(--bg);
@@ -44,401 +49,380 @@
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 2.5rem;
-      background: rgba(8,8,10,0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      padding: 1rem 2.5rem;
+      background: rgba(8,8,10,0.88);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-brand {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-2);
-    }
+    .nav-brand { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-2); }
     .nav-brand span { color: var(--amber); }
-    .nav-tag {
-      font-family: var(--font-mono);
-      font-size: 0.625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-3);
-      background: var(--amber-dim);
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-    }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-tag { font-family: var(--font-mono); font-size: 0.5625rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); background: var(--amber-dim); padding: 0.3rem 0.75rem; border-radius: 2px; }
+    .vote-count-nav { font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-3); letter-spacing: 0.05em; }
+    .vote-count-nav strong { color: var(--amber); }
 
     /* ── HERO ── */
-    .hero {
-      padding: 10rem 2.5rem 4rem;
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--amber);
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--amber);
-    }
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--text-2);
-      line-height: 1.6;
-      max-width: 580px;
-      margin: 0 auto;
-    }
+    .hero { padding: 9rem 2.5rem 3rem; max-width: 780px; margin: 0 auto; text-align: center; }
+    .hero-eyebrow { font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); margin-bottom: 1.25rem; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.25rem, 5.5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+    .hero h1 em { font-style: italic; color: var(--amber); }
+    .hero-desc { font-size: 1.0625rem; color: var(--text-2); line-height: 1.6; max-width: 520px; margin: 0 auto 1.5rem; }
+    .hero-instruction { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; }
+    .hero-instruction span { color: var(--amber); }
 
     /* ── GRID ── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2.5rem 6rem;
-    }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 1140px; margin: 0 auto; padding: 2.5rem 2.5rem 4rem; }
 
     /* ── CARD ── */
     .card {
-      position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      display: flex;
-      flex-direction: column;
+      position: relative; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 3px; overflow: hidden; display: flex; flex-direction: column;
+      transition: all 0.4s var(--ease);
     }
-    .card:hover {
-      border-color: var(--border-hover);
-      background: var(--surface-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 24px 48px rgba(0,0,0,0.3);
-    }
-    .card:hover .card-preview {
-      transform: scale(1.02);
-    }
-    .card:hover .card-arrow {
-      transform: translateX(4px);
-      opacity: 1;
-    }
+    .card:hover { border-color: var(--border-hover); background: var(--surface-hover); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.25); }
+    .card.voted { border-color: var(--amber-glow); }
+    .card.voted::before { content: ''; position: absolute; inset: 0; background: rgba(212,160,83,0.02); pointer-events: none; z-index: 1; }
 
-    .card-preview {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/10;
-      overflow: hidden;
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .card-preview iframe {
-      width: 200%;
-      height: 200%;
-      transform: scale(0.5);
-      transform-origin: top left;
-      border: none;
-      pointer-events: none;
-    }
+    /* Preview */
+    .card-preview { position: relative; width: 100%; aspect-ratio: 16/9.5; overflow: hidden; cursor: pointer; }
+    .card-preview iframe { width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; border: none; pointer-events: none; }
     .card-preview-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 60%, var(--surface) 100%);
-      z-index: 2;
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(180deg, transparent 40%, var(--surface) 100%);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .card:hover .card-preview-overlay { opacity: 1; }
+    .card-preview-overlay .preview-cta {
+      font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text); background: rgba(0,0,0,0.6);
+      padding: 0.5rem 1rem; border-radius: 2px; border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px); text-decoration: none;
     }
 
+    /* Badge */
     .card-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      z-index: 3;
-      font-family: var(--font-mono);
-      font-size: 0.5625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.3rem 0.6rem;
-      border-radius: 2px;
-      font-weight: 500;
+      position: absolute; top: 0.875rem; left: 0.875rem; z-index: 3;
+      font-family: var(--font-mono); font-size: 0.5rem; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 0.25rem 0.5rem; border-radius: 2px; font-weight: 600;
     }
-    .badge-current {
-      background: rgba(255,255,255,0.08);
-      color: var(--text-2);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .badge-d1 {
-      background: rgba(192,120,64,0.15);
-      color: var(--copper);
-      border: 1px solid rgba(192,120,64,0.25);
-    }
-    .badge-d2 {
-      background: rgba(212,160,83,0.15);
-      color: var(--amber);
-      border: 1px solid rgba(212,160,83,0.25);
-    }
-    .badge-d3 {
-      background: rgba(42,157,143,0.15);
-      color: var(--teal);
-      border: 1px solid rgba(42,157,143,0.25);
-    }
+    .badge-current { background: rgba(255,255,255,0.08); color: var(--text-2); border: 1px solid rgba(255,255,255,0.1); }
+    .badge-d1 { background: rgba(192,120,64,0.15); color: var(--copper); border: 1px solid rgba(192,120,64,0.25); }
+    .badge-d2 { background: rgba(212,160,83,0.15); color: var(--amber); border: 1px solid rgba(212,160,83,0.25); }
+    .badge-d3 { background: rgba(42,157,143,0.15); color: var(--teal); border: 1px solid rgba(42,157,143,0.25); }
 
-    .card-body {
-      padding: 1.5rem 1.75rem 1.75rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-number {
-      font-family: var(--font-mono);
-      font-size: 0.625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-3);
-      margin-bottom: 0.75rem;
-    }
-    .card h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-    .card h2 em {
-      font-style: italic;
-      color: var(--amber);
-    }
-    .card-desc {
-      font-size: 0.9375rem;
-      color: var(--text-2);
-      line-height: 1.65;
-      margin-bottom: 1.25rem;
-      flex: 1;
-    }
+    /* Body */
+    .card-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-number { font-family: var(--font-mono); font-size: 0.5625rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 0.5rem; }
+    .card h2 { font-family: var(--font-display); font-size: clamp(1.375rem, 2.5vw, 1.75rem); font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+    .card h2 em { font-style: italic; color: var(--amber); }
+    .card-desc { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+    .card-tags { display: flex; gap: 0.375rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .card-tag { font-family: var(--font-mono); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); background: rgba(255,255,255,0.03); padding: 0.2rem 0.4rem; border-radius: 2px; border: 1px solid var(--border); }
 
-    .card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-    .card-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .card-tag {
-      font-family: var(--font-mono);
-      font-size: 0.5625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-3);
-      background: rgba(255,255,255,0.03);
-      padding: 0.25rem 0.5rem;
-      border-radius: 2px;
-      border: 1px solid var(--border);
-    }
-    .card-arrow {
-      font-size: 1.25rem;
-      color: var(--amber);
-      opacity: 0.5;
-      transition: all 0.3s ease;
-    }
+    /* Vote section */
+    .card-vote { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--border); gap: 1rem; }
 
-    /* Accent stripe on hover */
-    .card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    .vote-btn {
+      font-family: var(--font-mono); font-size: 0.625rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.5rem 1.25rem; border-radius: 2px;
+      background: transparent; color: var(--amber); border: 1px solid var(--amber-dim);
+      cursor: pointer; transition: all 0.25s var(--ease);
+      display: flex; align-items: center; gap: 0.5rem;
     }
+    .vote-btn:hover { background: var(--amber-dim); border-color: var(--amber); }
+    .vote-btn:active { transform: scale(0.97); }
+    .vote-btn.voted {
+      background: var(--amber); color: var(--bg); border-color: var(--amber);
+      cursor: default; pointer-events: none;
+    }
+    .vote-btn .check { display: none; }
+    .vote-btn.voted .check { display: inline; }
+    .vote-btn.voted .vote-label { display: none; }
+    .vote-btn:disabled { opacity: 0.35; pointer-events: none; }
+
+    /* Vote bar */
+    .vote-stats { flex: 1; display: flex; align-items: center; gap: 0.75rem; }
+    .vote-bar-wrap { flex: 1; height: 3px; background: rgba(255,255,255,0.04); border-radius: 2px; overflow: hidden; }
+    .vote-bar { height: 100%; background: var(--amber); border-radius: 2px; transition: width 0.6s var(--ease); width: 0%; }
+    .vote-pct { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-2); min-width: 2.5rem; text-align: right; font-weight: 500; }
+    .vote-num { font-family: var(--font-mono); font-size: 0.5625rem; color: var(--text-3); }
+
+    .card[data-accent="copper"] .vote-bar { background: var(--copper); }
+    .card[data-accent="copper"] .vote-btn { color: var(--copper); border-color: rgba(192,120,64,0.3); }
+    .card[data-accent="copper"] .vote-btn:hover { background: rgba(192,120,64,0.12); border-color: var(--copper); }
+    .card[data-accent="copper"] .vote-btn.voted { background: var(--copper); color: var(--bg); border-color: var(--copper); }
+
+    .card[data-accent="teal"] .vote-bar { background: var(--teal); }
+    .card[data-accent="teal"] .vote-btn { color: var(--teal); border-color: rgba(42,157,143,0.3); }
+    .card[data-accent="teal"] .vote-btn:hover { background: rgba(42,157,143,0.12); border-color: var(--teal); }
+    .card[data-accent="teal"] .vote-btn.voted { background: var(--teal); color: var(--bg); border-color: var(--teal); }
+
+    .card[data-accent="gold"] .vote-bar { background: var(--gold); }
+    .card[data-accent="gold"] .vote-btn { color: var(--gold); border-color: rgba(196,164,78,0.3); }
+    .card[data-accent="gold"] .vote-btn:hover { background: rgba(196,164,78,0.12); border-color: var(--gold); }
+    .card[data-accent="gold"] .vote-btn.voted { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+
+    /* Accent stripe */
+    .card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease); }
     .card:hover::after { transform: scaleX(1); }
-
+    .card[data-accent="gold"]::after { background: var(--gold); }
     .card[data-accent="copper"]::after { background: var(--copper); }
     .card[data-accent="amber"]::after { background: var(--amber); }
     .card[data-accent="teal"]::after { background: var(--teal); }
+    .card.voted::after { transform: scaleX(1); }
 
     /* ── FOOTER ── */
-    .footer {
-      text-align: center;
-      padding: 2rem 2.5rem 3rem;
-      border-top: 1px solid var(--border);
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer p {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .footer p span { color: var(--amber); }
+    .footer { text-align: center; padding: 2rem 2.5rem 3rem; border-top: 1px solid var(--border); max-width: 1140px; margin: 0 auto; }
+    .footer p { font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer span { color: var(--amber); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .grid { grid-template-columns: 1fr; padding: 2rem 1.25rem 4rem; }
-      .hero { padding: 8rem 1.25rem 2.5rem; }
-      .nav { padding: 1rem 1.25rem; }
+      .grid { grid-template-columns: 1fr; padding: 2rem 1rem 3rem; gap: 1rem; }
+      .hero { padding: 7rem 1rem 2rem; }
+      .nav { padding: 0.875rem 1rem; }
+      .card-preview { aspect-ratio: 16/10; }
     }
 
-    /* ── ENTRANCE ANIMATION ── */
-    .card {
-      opacity: 0;
-      transform: translateY(32px);
-      animation: cardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
+    /* ── ENTRANCE ── */
+    .card { opacity: 0; transform: translateY(28px); animation: cardIn 0.65s var(--ease) forwards; }
     .card:nth-child(1) { animation-delay: 0.1s; }
     .card:nth-child(2) { animation-delay: 0.2s; }
     .card:nth-child(3) { animation-delay: 0.3s; }
     .card:nth-child(4) { animation-delay: 0.4s; }
+    @keyframes cardIn { to { opacity: 1; transform: translateY(0); } }
 
-    @keyframes cardIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-eyebrow, .hero h1, .hero p {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-    .hero-eyebrow { animation-delay: 0s; }
-    .hero h1 { animation-delay: 0.1s; }
-    .hero p { animation-delay: 0.2s; }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .hero > * { opacity: 0; transform: translateY(16px); animation: fadeUp 0.55s var(--ease) forwards; }
+    .hero > :nth-child(1) { animation-delay: 0s; }
+    .hero > :nth-child(2) { animation-delay: 0.08s; }
+    .hero > :nth-child(3) { animation-delay: 0.16s; }
+    .hero > :nth-child(4) { animation-delay: 0.24s; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
 
   <nav class="nav">
     <div class="nav-brand">Raychard <span>.</span> co</div>
-    <div class="nav-tag">Design Directions Preview</div>
+    <div class="nav-right">
+      <div class="vote-count-nav"><strong id="total-votes">0</strong> votes cast</div>
+      <div class="nav-tag">Design Directions</div>
+    </div>
   </nav>
 
   <div class="hero">
-    <p class="hero-eyebrow">Which direction resonates?</p>
-    <h1>Four visions for <em>raychard.co</em></h1>
-    <p>The current site alongside three new creative directions. Scroll through each, feel the experience, and pick the one that speaks to you.</p>
+    <p class="hero-eyebrow">One vote per person</p>
+    <h1>Which direction <em>speaks to you?</em></h1>
+    <p class="hero-desc">Four visions for raychard.co. Open each one, experience the scroll, then cast your vote for the one that resonates most.</p>
+    <p class="hero-instruction">Click preview to explore <span>&#183;</span> Click vote to choose</p>
   </div>
 
   <div class="grid">
 
-    <!-- Current -->
-    <a class="card" href="https://raychard.co" target="_blank" data-accent="amber">
-      <div class="card-preview">
+    <div class="card" data-direction="current" data-accent="gold">
+      <div class="card-preview" onclick="window.open('https://raychard.co','_blank')">
         <iframe src="https://raychard.co" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="card-preview-overlay"></div>
+        <div class="card-preview-overlay"><span class="preview-cta">Open Site &#8599;</span></div>
         <span class="card-badge badge-current">Current</span>
       </div>
       <div class="card-body">
-        <div class="card-number">00 — Live Site</div>
-        <h2>The Original</h2>
-        <p class="card-desc">The current raychard.co — the baseline. Clean, functional, tells the story. The question: can we go from good to unforgettable?</p>
-        <div class="card-meta">
-          <div class="card-tags">
-            <span class="card-tag">Next.js</span>
-            <span class="card-tag">Live</span>
+        <div class="card-number">00 — The Original</div>
+        <h2>Current <em>raychard.co</em></h2>
+        <p class="card-desc">The live site today. Clean, storytelling-led, functional. The baseline against which everything else is measured.</p>
+        <div class="card-tags">
+          <span class="card-tag">Next.js</span>
+          <span class="card-tag">Live</span>
+          <span class="card-tag">Storytelling</span>
+        </div>
+        <div class="card-vote">
+          <button class="vote-btn" data-vote="current">
+            <span class="vote-label">Vote</span>
+            <span class="check">Voted &#10003;</span>
+          </button>
+          <div class="vote-stats">
+            <div class="vote-bar-wrap"><div class="vote-bar" id="bar-current"></div></div>
+            <span class="vote-pct" id="pct-current">0%</span>
           </div>
-          <span class="card-arrow">&#8599;</span>
         </div>
       </div>
-    </a>
+    </div>
 
-    <!-- D1 Resonate -->
-    <a class="card" href="/raychard-preview/d1/" target="_blank" data-accent="copper">
-      <div class="card-preview">
+    <div class="card" data-direction="d1" data-accent="copper">
+      <div class="card-preview" onclick="window.open('https://raychardh.github.io/raychard-preview/d1/','_blank')">
         <iframe src="/raychard-preview/d1/" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="card-preview-overlay"></div>
+        <div class="card-preview-overlay"><span class="preview-cta">Open Site &#8599;</span></div>
         <span class="card-badge badge-d1">Direction 1</span>
       </div>
       <div class="card-body">
         <div class="card-number">01 — Resonate</div>
         <h2>The <em>Frequency</em></h2>
-        <p class="card-desc">Light mode. Audio-reactive particles. FM synthesis tied to scroll. Each section is a frequency on a handpan scale. The site is an instrument you play by scrolling.</p>
-        <div class="card-meta">
-          <div class="card-tags">
-            <span class="card-tag">Light Mode</span>
-            <span class="card-tag">Audio</span>
-            <span class="card-tag">Particles</span>
+        <p class="card-desc">Light mode. Audio-reactive particles. Each section is a frequency on a handpan scale. The site is an instrument you play by scrolling.</p>
+        <div class="card-tags">
+          <span class="card-tag">Light Mode</span>
+          <span class="card-tag">Audio</span>
+          <span class="card-tag">Particles</span>
+        </div>
+        <div class="card-vote">
+          <button class="vote-btn" data-vote="d1">
+            <span class="vote-label">Vote</span>
+            <span class="check">Voted &#10003;</span>
+          </button>
+          <div class="vote-stats">
+            <div class="vote-bar-wrap"><div class="vote-bar" id="bar-d1"></div></div>
+            <span class="vote-pct" id="pct-d1">0%</span>
           </div>
-          <span class="card-arrow">&#8599;</span>
         </div>
       </div>
-    </a>
+    </div>
 
-    <!-- D2 Compound -->
-    <a class="card" href="/raychard-preview/d2/" target="_blank" data-accent="amber">
-      <div class="card-preview">
+    <div class="card" data-direction="d2" data-accent="amber">
+      <div class="card-preview" onclick="window.open('https://raychardh.github.io/raychard-preview/d2/','_blank')">
         <iframe src="/raychard-preview/d2/" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="card-preview-overlay"></div>
+        <div class="card-preview-overlay"><span class="preview-cta">Open Site &#8599;</span></div>
         <span class="card-badge badge-d2">Direction 2</span>
       </div>
       <div class="card-body">
         <div class="card-number">02 — Compound Intelligence</div>
         <h2>The <em>Network</em></h2>
-        <p class="card-desc">Dark earth tones. A living intelligence graph that grows as you scroll. Luminous nodes, bezier connections, viewport-scale typography. Every project feeds the next.</p>
-        <div class="card-meta">
-          <div class="card-tags">
-            <span class="card-tag">Dark Mode</span>
-            <span class="card-tag">Graph</span>
-            <span class="card-tag">GSAP</span>
+        <p class="card-desc">Dark earth tones. A living intelligence graph that grows as you scroll. Luminous nodes, bezier connections, viewport-scale typography.</p>
+        <div class="card-tags">
+          <span class="card-tag">Dark Mode</span>
+          <span class="card-tag">Graph</span>
+          <span class="card-tag">GSAP</span>
+        </div>
+        <div class="card-vote">
+          <button class="vote-btn" data-vote="d2">
+            <span class="vote-label">Vote</span>
+            <span class="check">Voted &#10003;</span>
+          </button>
+          <div class="vote-stats">
+            <div class="vote-bar-wrap"><div class="vote-bar" id="bar-d2"></div></div>
+            <span class="vote-pct" id="pct-d2">0%</span>
           </div>
-          <span class="card-arrow">&#8599;</span>
         </div>
       </div>
-    </a>
+    </div>
 
-    <!-- D3 Foresight -->
-    <a class="card" href="/raychard-preview/d3/" target="_blank" data-accent="teal">
-      <div class="card-preview">
+    <div class="card" data-direction="d3" data-accent="teal">
+      <div class="card-preview" onclick="window.open('https://raychardh.github.io/raychard-preview/d3/','_blank')">
         <iframe src="/raychard-preview/d3/" loading="lazy" tabindex="-1" sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="card-preview-overlay"></div>
+        <div class="card-preview-overlay"><span class="preview-cta">Open Site &#8599;</span></div>
         <span class="card-badge badge-d3">Direction 3</span>
       </div>
       <div class="card-body">
         <div class="card-number">03 — Strategic Foresight</div>
         <h2>The <em>Simulator</em></h2>
-        <p class="card-desc">Interactive strategic decision simulator. Step into a CEO's midnight, make real choices, see real outcomes. The site proves the thinking before you hire it.</p>
-        <div class="card-meta">
-          <div class="card-tags">
-            <span class="card-tag">Interactive</span>
-            <span class="card-tag">Simulator</span>
-            <span class="card-tag">Canvas</span>
+        <p class="card-desc">Interactive strategic decision simulator. Step into a CEO's midnight, make real choices, see real outcomes. Proves the thinking before you hire it.</p>
+        <div class="card-tags">
+          <span class="card-tag">Interactive</span>
+          <span class="card-tag">Simulator</span>
+          <span class="card-tag">Canvas</span>
+        </div>
+        <div class="card-vote">
+          <button class="vote-btn" data-vote="d3">
+            <span class="vote-label">Vote</span>
+            <span class="check">Voted &#10003;</span>
+          </button>
+          <div class="vote-stats">
+            <div class="vote-bar-wrap"><div class="vote-bar" id="bar-d3"></div></div>
+            <span class="vote-pct" id="pct-d3">0%</span>
           </div>
-          <span class="card-arrow">&#8599;</span>
         </div>
       </div>
-    </a>
+    </div>
 
   </div>
 
   <footer class="footer">
     <p>Built with <span>WebOS</span> — Raychard's AI-native design system</p>
   </footer>
+
+  <script>
+    const API = '/api/votes';
+    const STORAGE_KEY = 'raychard-vote';
+    const directions = ['current', 'd1', 'd2', 'd3'];
+
+    function getMyVote() {
+      return localStorage.getItem(STORAGE_KEY);
+    }
+
+    function updateUI(votes) {
+      const total = directions.reduce((sum, d) => sum + (votes[d] || 0), 0);
+      document.getElementById('total-votes').textContent = total;
+
+      directions.forEach(d => {
+        const bar = document.getElementById(`bar-${d}`);
+        const pct = document.getElementById(`pct-${d}`);
+        const count = votes[d] || 0;
+        const percent = total > 0 ? Math.round((count / total) * 100) : 0;
+        if (bar) bar.style.width = percent + '%';
+        if (pct) pct.textContent = percent + '%';
+      });
+
+      // Mark voted card
+      const myVote = getMyVote();
+      if (myVote) {
+        document.querySelectorAll('.vote-btn').forEach(btn => {
+          if (btn.dataset.vote === myVote) {
+            btn.classList.add('voted');
+            btn.closest('.card').classList.add('voted');
+          } else {
+            btn.disabled = true;
+          }
+        });
+      }
+    }
+
+    async function loadVotes() {
+      try {
+        const res = await fetch(API);
+        if (res.ok) {
+          const votes = await res.json();
+          updateUI(votes);
+        }
+      } catch {
+        // API not available — use localStorage fallback
+        const local = JSON.parse(localStorage.getItem('raychard-votes') || '{"current":0,"d1":0,"d2":0,"d3":0}');
+        updateUI(local);
+      }
+    }
+
+    async function castVote(direction) {
+      if (getMyVote()) return;
+      localStorage.setItem(STORAGE_KEY, direction);
+
+      // Optimistic local update
+      const local = JSON.parse(localStorage.getItem('raychard-votes') || '{"current":0,"d1":0,"d2":0,"d3":0}');
+      local[direction] = (local[direction] || 0) + 1;
+      localStorage.setItem('raychard-votes', JSON.stringify(local));
+      updateUI(local);
+
+      // Send to API
+      try {
+        const res = await fetch(API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ direction }),
+        });
+        if (res.ok) {
+          const votes = await res.json();
+          updateUI(votes);
+        }
+      } catch {
+        // API failed — localStorage already updated
+      }
+    }
+
+    // Bind vote buttons
+    document.querySelectorAll('.vote-btn').forEach(btn => {
+      btn.addEventListener('click', () => castVote(btn.dataset.vote));
+    });
+
+    // Load initial votes
+    loadVotes();
+  </script>
 
 </body>
 </html>
